@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookResource\Pages;
+use Carbon\Carbon;
 use Domains\Book\Models\Book;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -52,12 +53,16 @@ class BookResource extends Resource
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'available' => 'success',
-                        'not-available' => 'warning',
-                        'borrowed' => 'gray'
+                        'not-available' => 'danger',
+                        'borrowed' => 'warning'
                     }),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label('Created')
+                    ->formatStateUsing(fn (Book $record): string => Carbon::parse($record->created_at)->diffForHumans())
                     ->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label('Updated')
+                    ->formatStateUsing(fn (Book $record): string => Carbon::parse($record->created_at)->diffForHumans())
                     ->sortable(),
             ])
             ->defaultSort('updated_at', 'desc')
