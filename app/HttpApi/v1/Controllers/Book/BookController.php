@@ -10,13 +10,27 @@ use Domains\Book\Resources\BookResource;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\JsonApiResourceCollection;
 
+/**
+ * BookController
+ */
 class BookController extends Controller
 {
+    /**
+     * index
+     *
+     * @return JsonApiResourceCollection
+     */
     public function index(): JsonApiResourceCollection
     {
         return BookResource::collection(Book::paginate());
     }
 
+    /**
+     * show
+     *
+     * @param  mixed $book
+     * @return JsonApiResource
+     */
     public function show(Book $book): JsonApiResource
     {
         return BookResource::make($book);

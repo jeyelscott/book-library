@@ -8,8 +8,16 @@ use Domains\Book\Models\Book;
 use Livewire\Livewire;
 use Tests\TestCase;
 
+/**
+ * EditBookTest
+ */
 class EditBookTest extends TestCase
 {
+    /**
+     * test_it_can_render_edit_book_page
+     *
+     * @return void
+     */
     public function test_it_can_render_edit_book_page(): void
     {
         $this->get(BookResource::getUrl('edit', [
@@ -17,6 +25,11 @@ class EditBookTest extends TestCase
         ]))->assertSuccessful();
     }
 
+    /**
+     * test_it_can_update_book
+     *
+     * @return void
+     */
     public function test_it_can_update_book(): void
     {
         $book = Book::factory()->create();

@@ -12,10 +12,16 @@ use Filament\Resources\Pages\EditRecord;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * EditAuthor
+ */
 class EditAuthor extends EditRecord
 {
     protected static string $resource = AuthorResource::class;
 
+    /**
+     * getHeaderActions
+     */
     protected function getHeaderActions(): array
     {
         return [
@@ -23,6 +29,12 @@ class EditAuthor extends EditRecord
         ];
     }
 
+    /**
+     * handleRecordUpdate
+     *
+     * @param  mixed  $record
+     * @param  mixed  $data
+     */
     public function handleRecordUpdate(Model $record, array $data): Model
     {
         return DB::transaction(fn () => app(UpdateAuthorAction::class)->execute($record, AuthorData::fromArray($data)));

@@ -8,10 +8,18 @@ use Domains\Author\Traits\AuthorRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Author
+ */
 class Author extends Model
 {
     use AuthorRelationship, HasFactory;
 
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
         'name',
         'description',
@@ -21,6 +29,11 @@ class Author extends Model
         'address',
     ];
 
+    /**
+     * dates
+     *
+     * @var array
+     */
     protected $dates = [
         'date_of_birth',
     ];

@@ -7,8 +7,17 @@ namespace Domains\Author\Actions;
 use Domains\Author\DataTransferObjects\AuthorData;
 use Domains\Author\Models\Author;
 
+/**
+ * CreateAuthorAction
+ */
 class CreateAuthorAction
 {
+    /**
+     * execute
+     *
+     * @param  mixed $authorData
+     * @return Author
+     */
     public function execute(AuthorData $authorData): Author
     {
         $author = Author::create([

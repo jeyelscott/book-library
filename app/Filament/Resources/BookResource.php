@@ -15,12 +15,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
+/**
+ * BookResource
+ */
 class BookResource extends Resource
 {
     protected static ?string $model = Book::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
+    /**
+     * form
+     *
+     * @param  mixed  $form
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -47,6 +55,11 @@ class BookResource extends Resource
             ]);
     }
 
+    /**
+     * table
+     *
+     * @param  mixed  $table
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -85,6 +98,9 @@ class BookResource extends Resource
             ]);
     }
 
+    /**
+     * getRelations
+     */
     public static function getRelations(): array
     {
         return [
@@ -92,6 +108,9 @@ class BookResource extends Resource
         ];
     }
 
+    /**
+     * getPages
+     */
     public static function getPages(): array
     {
         return [

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Domains\Book\Resources;
+namespace Domains\Author\Resources;
 
-use Domains\Author\Resources\AuthorResource;
+use Domains\Book\Resources\BookResource;
 use Illuminate\Http\Request;
 use TiMacDonald\JsonApi\JsonApiResource;
 
-class BookResource extends JsonApiResource
+class AuthorResource extends JsonApiResource
 {
     /**
      * toAttributes
@@ -21,7 +21,10 @@ class BookResource extends JsonApiResource
         return [
             'name' => $this->name,
             'description' => $this->description,
-            'status' => $this->status,
+            'email' => $this->email,
+            'contact_number' => $this->contact_number,
+            'date_of_birth' => $this->date_of_birth,
+            'address' => $this->address,
         ];
     }
 
@@ -34,7 +37,7 @@ class BookResource extends JsonApiResource
     public function toRelationships(Request $request): array
     {
         return [
-            'authors' => fn () => AuthorResource::collection($this->authors)
+            'books' => fn () => BookResource::collection($this->books),
         ];
     }
 }

@@ -7,8 +7,18 @@ namespace Domains\Author\Actions;
 use Domains\Author\DataTransferObjects\AuthorData;
 use Domains\Author\Models\Author;
 
+/**
+ * UpdateAuthorAction
+ */
 class UpdateAuthorAction
 {
+    /**
+     * execute
+     *
+     * @param  mixed $author
+     * @param  mixed $authorData
+     * @return Author
+     */
     public function execute(Author $author, AuthorData $authorData): Author
     {
         $author->update([

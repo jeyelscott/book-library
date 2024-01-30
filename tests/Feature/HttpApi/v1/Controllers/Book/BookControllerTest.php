@@ -6,8 +6,16 @@ use Domains\Book\Models\Book;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
+/**
+ * BookControllerTest
+ */
 class BookControllerTest extends TestCase
 {
+    /**
+     * test_it_can_get_books_list
+     *
+     * @return void
+     */
     public function test_it_can_get_books_list(): void
     {
         Book::factory(10)->create();
@@ -30,6 +38,11 @@ class BookControllerTest extends TestCase
         });
     }
 
+    /**
+     * test_it_can_get_specific_book
+     *
+     * @return void
+     */
     public function test_it_can_get_specific_book(): void
     {
         $book = Book::factory()->create();

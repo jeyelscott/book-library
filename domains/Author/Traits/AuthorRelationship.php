@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 trait AuthorRelationship
 {
     /**
-     * Get all of the books for the AuthorRelationship
+     * books
+     *
+     * @return BelongsToMany
      */
     public function books(): BelongsToMany
     {

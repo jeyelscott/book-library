@@ -4,8 +4,16 @@ declare(strict_types=1);
 
 namespace Domains\Author\DataTransferObjects;
 
+/**
+ * AuthorData
+ */
 class AuthorData
 {
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct(
         public readonly string $name,
         public readonly string $email,
@@ -18,6 +26,12 @@ class AuthorData
         //
     }
 
+    /**
+     * fromArray
+     *
+     * @param  mixed $data
+     * @return self
+     */
     public static function fromArray(array $data): self
     {
         return new self(

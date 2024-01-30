@@ -16,12 +16,20 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Support\Str;
 
+/**
+ * AuthorResource
+ */
 class AuthorResource extends Resource
 {
     protected static ?string $model = Author::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    /**
+     * form
+     *
+     * @param  mixed  $form
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -58,6 +66,11 @@ class AuthorResource extends Resource
             ]);
     }
 
+    /**
+     * table
+     *
+     * @param  mixed  $table
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -88,6 +101,9 @@ class AuthorResource extends Resource
             ]);
     }
 
+    /**
+     * getRelations
+     */
     public static function getRelations(): array
     {
         return [
@@ -95,6 +111,9 @@ class AuthorResource extends Resource
         ];
     }
 
+    /**
+     * getPages
+     */
     public static function getPages(): array
     {
         return [
