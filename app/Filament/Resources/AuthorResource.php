@@ -49,7 +49,7 @@ class AuthorResource extends Resource
                 Forms\Components\TextInput::make('contact_number')
                     ->prefix('+63')
                     ->placeholder('9123456789')
-                    ->maxLength(11),
+                    ->maxLength(10),
                 Forms\Components\DatePicker::make('date_of_birth')
                     ->required()
                     ->maxDate(fn (): string => date('Y-m-d')),

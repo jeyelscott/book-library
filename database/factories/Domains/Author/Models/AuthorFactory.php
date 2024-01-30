@@ -26,7 +26,7 @@ class AuthorFactory extends Factory
         return [
             'name' => fake()->name($gender),
             'description' => fake()->paragraph(),
-            'contact_number' => fake()->phoneNumber(),
+            'contact_number' => '9' . rand(100000000, 999999999),
             'email' => fake()->email(),
             'date_of_birth' => fake()->date('Y-m-d', date('Y-m-d', strtotime('-18 years'))),
             'address' => fake()->address(),
