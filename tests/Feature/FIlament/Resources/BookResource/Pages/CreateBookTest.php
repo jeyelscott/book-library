@@ -15,8 +15,6 @@ class CreateBookTest extends TestCase
 {
     /**
      * test_it_can_render_create_book_page
-     *
-     * @return void
      */
     public function test_it_can_render_create_book_page(): void
     {
@@ -25,8 +23,6 @@ class CreateBookTest extends TestCase
 
     /**
      * test_it_can_create_book
-     *
-     * @return void
      */
     public function test_it_can_create_book(): void
     {

@@ -15,8 +15,7 @@ class CreateAuthorAction
     /**
      * execute
      *
-     * @param  mixed $authorData
-     * @return Author
+     * @param  mixed  $authorData
      */
     public function execute(AuthorData $authorData): Author
     {

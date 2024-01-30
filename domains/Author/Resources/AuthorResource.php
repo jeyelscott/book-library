@@ -13,8 +13,7 @@ class AuthorResource extends JsonApiResource
     /**
      * toAttributes
      *
-     * @param  mixed $request
-     * @return array
+     * @param  mixed  $request
      */
     public function toAttributes(Request $request): array
     {
@@ -31,8 +30,7 @@ class AuthorResource extends JsonApiResource
     /**
      * toRelationships
      *
-     * @param  mixed $request
-     * @return array
+     * @param  mixed  $request
      */
     public function toRelationships(Request $request): array
     {

@@ -15,9 +15,8 @@ class UpdateBookAction
     /**
      * execute
      *
-     * @param  mixed $book
-     * @param  mixed $bookData
-     * @return Book
+     * @param  mixed  $book
+     * @param  mixed  $bookData
      */
     public function execute(Book $book, BookData $bookData): Book
     {

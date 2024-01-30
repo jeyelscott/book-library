@@ -11,8 +11,6 @@ trait BookRelationship
 {
     /**
      * authors
-     *
-     * @return BelongsToMany
      */
     public function authors(): BelongsToMany
     {

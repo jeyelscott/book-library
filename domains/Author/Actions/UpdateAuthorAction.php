@@ -15,9 +15,8 @@ class UpdateAuthorAction
     /**
      * execute
      *
-     * @param  mixed $author
-     * @param  mixed $authorData
-     * @return Author
+     * @param  mixed  $author
+     * @param  mixed  $authorData
      */
     public function execute(Author $author, AuthorData $authorData): Author
     {

@@ -15,8 +15,6 @@ class ListBooksTest extends TestCase
 {
     /**
      * test_it_can_render_page
-     *
-     * @return void
      */
     public function test_it_can_render_page(): void
     {
@@ -25,8 +23,6 @@ class ListBooksTest extends TestCase
 
     /**
      * test_it_can_list_books
-     *
-     * @return void
      */
     public function test_it_can_list_books(): void
     {

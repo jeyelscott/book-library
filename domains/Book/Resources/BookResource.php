@@ -13,8 +13,7 @@ class BookResource extends JsonApiResource
     /**
      * toAttributes
      *
-     * @param  mixed $request
-     * @return array
+     * @param  mixed  $request
      */
     public function toAttributes(Request $request): array
     {
@@ -28,13 +27,12 @@ class BookResource extends JsonApiResource
     /**
      * toRelationships
      *
-     * @param  mixed $request
-     * @return array
+     * @param  mixed  $request
      */
     public function toRelationships(Request $request): array
     {
         return [
-            'authors' => fn () => AuthorResource::collection($this->authors)
+            'authors' => fn () => AuthorResource::collection($this->authors),
         ];
     }
 }

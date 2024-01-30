@@ -13,8 +13,6 @@ class BookControllerTest extends TestCase
 {
     /**
      * test_it_can_get_books_list
-     *
-     * @return void
      */
     public function test_it_can_get_books_list(): void
     {
@@ -40,8 +38,6 @@ class BookControllerTest extends TestCase
 
     /**
      * test_it_can_get_specific_book
-     *
-     * @return void
      */
     public function test_it_can_get_specific_book(): void
     {

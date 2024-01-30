@@ -15,8 +15,6 @@ class EditBookTest extends TestCase
 {
     /**
      * test_it_can_render_edit_book_page
-     *
-     * @return void
      */
     public function test_it_can_render_edit_book_page(): void
     {
@@ -27,8 +25,6 @@ class EditBookTest extends TestCase
 
     /**
      * test_it_can_update_book
-     *
-     * @return void
      */
     public function test_it_can_update_book(): void
     {

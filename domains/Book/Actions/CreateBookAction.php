@@ -15,8 +15,7 @@ class CreateBookAction
     /**
      * execute
      *
-     * @param  mixed $bookData
-     * @return Book
+     * @param  mixed  $bookData
      */
     public function execute(BookData $bookData): Book
     {
