@@ -11,14 +11,15 @@ class BookData
         public readonly string $description,
         public readonly string $status,
     ) {
+        //
     }
 
     public static function fromArray(array $data): self
     {
         return new self(
-            name: (string) $data['name'],
-            description: (string) $data['description'],
-            status: (string) $data['status'],
+            name: $data['name'],
+            description: $data['description'],
+            status: $data['status'],
         );
     }
 }

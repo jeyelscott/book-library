@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Database\Factories\Domains\Author\Models;
+
+use Domains\Author\Models\Author;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Author>
+ */
+class AuthorFactory extends Factory
+{
+    protected $model = Author::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        $gender = fake()->randomElement(['male', 'female']);
+
+        return [
+            'name' => fake()->name($gender),
+            'description' => fake()->paragraph(),
+            'contact_number' => fake()->phoneNumber(),
+            'email' => fake()->email(),
+            'date_of_birth' => fake()->date('Y-m-d', date('Y-m-d', strtotime('-18 years'))),
+            'address' => fake()->address(),
+        ];
+    }
+}

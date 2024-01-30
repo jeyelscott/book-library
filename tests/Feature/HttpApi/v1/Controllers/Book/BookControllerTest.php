@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 use Domains\Book\Models\Book;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
-
-use function Pest\Laravel\getJson;
 
 class BookControllerTest extends TestCase
 {

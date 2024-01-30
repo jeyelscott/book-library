@@ -6,6 +6,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookResource\Pages;
 use Carbon\Carbon;
+use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -30,6 +31,11 @@ class BookResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->required()
                     ->rows(5)
+                    ->columnSpanFull(),
+                Forms\Components\Select::make('authors')
+                    ->multiple()
+                    ->options(Author::all()->pluck('name', 'id'))
+                    ->searchable()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
                     ->options([

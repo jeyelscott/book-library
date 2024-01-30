@@ -7,7 +7,6 @@ namespace App\HttpApi\V1\Controllers\Book;
 use App\Http\Controllers\Controller;
 use Domains\Book\Models\Book;
 use Domains\Book\Resources\BookResource;
-use Illuminate\Http\JsonResponse;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\JsonApiResourceCollection;
 
