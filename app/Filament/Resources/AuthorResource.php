@@ -60,8 +60,9 @@ class AuthorResource extends Resource
                 Forms\Components\Select::make('books')
                     ->multiple()
                     ->options(Book::all()->pluck('name', 'id'))
+                    ->formatStateUsing(fn (?Book $record) => $record ? $record->books->pluck('id')->toArray() : [])
+                    ->preload()
                     ->searchable()
-                    ->formatStateUsing(fn (?Author $record) => $record ? $record->books->pluck('id')->toArray() : [])
                     ->columnSpanFull(),
             ]);
     }

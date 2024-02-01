@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Database\Factories\Domains\Book\Models;
 
+use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
+use Domains\Genre\Models\Genre;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -26,5 +28,16 @@ class BookFactory extends Factory
             'description' => fake()->paragraph(),
             'status' => fake()->randomElement(['borrowed', 'available', 'not-available']),
         ];
+    }
+
+    public function configure(): static
+    {
+        return $this->afterCreating(function (Book $book) {
+            $authors = Author::inRandomOrder()->limit(rand(1, 3))->get();
+            $genres = Genre::inRandomOrder()->limit(rand(1, 3))->get();
+
+            $book->authors()->attach($authors);
+            $book->genres()->attach($genres);
+        });
     }
 }

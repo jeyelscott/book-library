@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace App\HttpApi\V1\Controllers\Author;
+namespace App\HttpApi\V1\Controllers\Genre;
 
 use App\Http\Controllers\Controller;
-use Domains\Author\Models\Author;
-use Domains\Author\Resources\AuthorResource;
+use Domains\Genre\Models\Genre;
+use Domains\Genre\Resources\GenreResource;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\JsonApiResourceCollection;
 
 /**
- * AuthorController
+ * GenreController
  */
-class AuthorController extends Controller
+class GenreController extends Controller
 {
     /**
      * index
@@ -22,17 +22,17 @@ class AuthorController extends Controller
      */
     public function index(): JsonApiResourceCollection
     {
-        return AuthorResource::collection(Author::paginate());
+        return GenreResource::collection(Genre::paginate());
     }
 
     /**
      * show
      *
-     * @param  mixed $author
+     * @param  mixed $genre
      * @return JsonApiResource
      */
-    public function show(Author $author): JsonApiResource
+    public function show(Genre $genre): JsonApiResource
     {
-        return AuthorResource::make($author);
+        return GenreResource::make($genre);
     }
 }

@@ -25,6 +25,9 @@ class CreateBookAction
             'status' => $bookData->status,
         ]);
 
+        $book->authors()->attach($bookData->authors);
+        $book->genres()->attach($bookData->genres);
+
         return $book;
     }
 }

@@ -26,6 +26,9 @@ class UpdateBookAction
             'status' => $bookData->status,
         ]);
 
+        $book->authors()->sync($bookData->authors);
+        $book->genres()->sync($bookData->genres);
+
         return $book;
     }
 }

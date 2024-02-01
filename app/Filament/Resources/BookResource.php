@@ -8,6 +8,7 @@ use App\Filament\Resources\BookResource\Pages;
 use Carbon\Carbon;
 use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
+use Domains\Genre\Models\Genre;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -43,7 +44,16 @@ class BookResource extends Resource
                 Forms\Components\Select::make('authors')
                     ->multiple()
                     ->options(Author::all()->pluck('name', 'id'))
+                    ->formatStateUsing(fn (?Book $record) => $record ? $record->authors->pluck('id')->toArray() : [])
                     ->searchable()
+                    ->preload()
+                    ->columnSpanFull(),
+                Forms\Components\Select::make('genres')
+                    ->multiple()
+                    ->options(Genre::all()->pluck('name', 'id'))
+                    ->formatStateUsing(fn (?Book $record) => $record ? $record->genres->pluck('id')->toArray() : [])
+                    ->searchable()
+                    ->preload()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
                     ->options([

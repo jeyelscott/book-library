@@ -9,6 +9,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
+use Domains\Genre\Models\Genre;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -28,11 +29,8 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        Author::factory(20)
-            ->hasAttached(
-                Book::factory()
-                    ->count(rand(1, 5))
-            )
-            ->create();
+        Author::factory(10)->create();
+        Genre::factory(10)->create();
+        Book::factory(10)->create();
     }
 }

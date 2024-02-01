@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Domains\Book\DataTransferObjects;
+namespace Domains\Genre\DataTransferObjects;
 
 /**
- * BookData
+ * GenreData
  */
-class BookData
+class GenreData
 {
     /**
      * __construct
@@ -16,10 +16,7 @@ class BookData
      */
     public function __construct(
         public readonly string $name,
-        public readonly string $description,
-        public readonly string $status,
-        public readonly array $authors,
-        public readonly array $genres,
+        public readonly ?string $description,
     ) {
         //
     }
@@ -34,9 +31,6 @@ class BookData
         return new self(
             name: $data['name'],
             description: $data['description'],
-            status: $data['status'],
-            authors: $data['authors'],
-            genres: $data['genres'],
         );
     }
 }
