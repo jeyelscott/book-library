@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * run
-     *
-     * @return void
      */
     public function run(): void
     {

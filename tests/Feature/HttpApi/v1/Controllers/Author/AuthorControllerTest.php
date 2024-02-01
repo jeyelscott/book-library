@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
@@ -15,8 +14,6 @@ class AuthorControllerTest extends TestCase
 {
     /**
      * test_it_can_get_authors_list
-     *
-     * @return void
      */
     public function test_it_can_get_authors_list(): void
     {
@@ -45,8 +42,6 @@ class AuthorControllerTest extends TestCase
 
     /**
      * test_it_can_get_specific_author
-     *
-     * @return void
      */
     public function test_it_can_get_specific_author(): void
     {
@@ -69,8 +64,6 @@ class AuthorControllerTest extends TestCase
 
     /**
      * test_it_can_get_specific_author_with_books
-     *
-     * @return void
      */
     public function test_it_can_get_specific_author_with_books(): void
     {

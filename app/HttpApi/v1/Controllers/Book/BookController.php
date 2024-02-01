@@ -17,8 +17,6 @@ class BookController extends Controller
 {
     /**
      * index
-     *
-     * @return JsonApiResourceCollection
      */
     public function index(): JsonApiResourceCollection
     {
@@ -28,8 +26,7 @@ class BookController extends Controller
     /**
      * show
      *
-     * @param  mixed $book
-     * @return JsonApiResource
+     * @param  mixed  $book
      */
     public function show(Book $book): JsonApiResource
     {

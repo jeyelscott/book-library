@@ -17,8 +17,6 @@ class AuthorController extends Controller
 {
     /**
      * index
-     *
-     * @return JsonApiResourceCollection
      */
     public function index(): JsonApiResourceCollection
     {
@@ -28,8 +26,7 @@ class AuthorController extends Controller
     /**
      * show
      *
-     * @param  mixed $author
-     * @return JsonApiResource
+     * @param  mixed  $author
      */
     public function show(Author $author): JsonApiResource
     {

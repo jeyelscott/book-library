@@ -15,8 +15,6 @@ class EditAuthorTest extends TestCase
 {
     /**
      * test_it_can_render_edit_author_page
-     *
-     * @return void
      */
     public function test_it_can_render_edit_author_page(): void
     {
@@ -27,8 +25,6 @@ class EditAuthorTest extends TestCase
 
     /**
      * test_it_can_update_author
-     *
-     * @return void
      */
     public function test_it_can_update_author(): void
     {

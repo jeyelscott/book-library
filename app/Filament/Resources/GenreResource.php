@@ -1,9 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\GenreResource\Pages;
-use App\Filament\Resources\GenreResource\RelationManagers;
 use Carbon\Carbon;
 use Domains\Genre\Models\Genre;
 use Filament\Forms;
@@ -11,8 +12,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class GenreResource extends Resource
@@ -21,6 +20,11 @@ class GenreResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    /**
+     * form
+     *
+     * @param  mixed  $form
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -32,10 +36,15 @@ class GenreResource extends Resource
                 Forms\Components\Textarea::make('description')
                     ->placeholder('Genre description')
                     ->columnSpanFull()
-                    ->rows(5)
+                    ->rows(5),
             ]);
     }
 
+    /**
+     * table
+     *
+     * @param  mixed  $table
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -47,7 +56,7 @@ class GenreResource extends Resource
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label('Updated')
                     ->sortable()
-                    ->formatStateUsing(fn (Genre $record) => Carbon::parse($record->updated_at)->diffForHumans())
+                    ->formatStateUsing(fn (Genre $record) => Carbon::parse($record->updated_at)->diffForHumans()),
             ])
             ->filters([
                 //
@@ -62,6 +71,9 @@ class GenreResource extends Resource
             ]);
     }
 
+    /**
+     * getRelations
+     */
     public static function getRelations(): array
     {
         return [
@@ -69,6 +81,9 @@ class GenreResource extends Resource
         ];
     }
 
+    /**
+     * getPages
+     */
     public static function getPages(): array
     {
         return [

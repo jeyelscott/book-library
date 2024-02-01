@@ -17,8 +17,6 @@ class GenreController extends Controller
 {
     /**
      * index
-     *
-     * @return JsonApiResourceCollection
      */
     public function index(): JsonApiResourceCollection
     {
@@ -28,8 +26,7 @@ class GenreController extends Controller
     /**
      * show
      *
-     * @param  mixed $genre
-     * @return JsonApiResource
+     * @param  mixed  $genre
      */
     public function show(Genre $genre): JsonApiResource
     {

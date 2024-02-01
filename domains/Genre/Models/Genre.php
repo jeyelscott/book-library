@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Domains\Genre\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,6 +21,6 @@ class Genre extends Model
      */
     protected $fillable = [
         'name',
-        'description'
+        'description',
     ];
 }

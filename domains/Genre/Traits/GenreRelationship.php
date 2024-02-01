@@ -11,8 +11,6 @@ trait GenreRelationship
 {
     /**
      * books
-     *
-     * @return BelongsToMany
      */
     public function books(): BelongsToMany
     {
