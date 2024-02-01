@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use Domains\Author\Models\Author;
+use Domains\Book\Models\Book;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 
@@ -13,6 +15,8 @@ class AuthorControllerTest extends TestCase
 {
     /**
      * test_it_can_get_authors_list
+     *
+     * @return void
      */
     public function test_it_can_get_authors_list(): void
     {
@@ -41,6 +45,8 @@ class AuthorControllerTest extends TestCase
 
     /**
      * test_it_can_get_specific_author
+     *
+     * @return void
      */
     public function test_it_can_get_specific_author(): void
     {
@@ -57,6 +63,28 @@ class AuthorControllerTest extends TestCase
                 ->where('data.attributes.date_of_birth', $author->date_of_birth)
                 ->where('data.attributes.contact_number', $author->contact_number)
                 ->where('data.attributes.address', $author->address)
+                ->etc();
+        });
+    }
+
+    /**
+     * test_it_can_get_specific_author_with_books
+     *
+     * @return void
+     */
+    public function test_it_can_get_specific_author_with_books(): void
+    {
+        $author = Author::factory()->hasAttached(Book::factory()->count(1))->create();
+        $book = $author->books()->first();
+        $response = $this->getJson('/api/v1/authors/15?include=books');
+        $response->assertOk();
+
+        $response->assertJson(function (AssertableJson $json) use ($book) {
+            $json
+                ->has('included')
+                ->where('included.0.attributes.name', $book->name)
+                ->where('included.0.attributes.description', $book->description)
+                ->where('included.0.attributes.status', $book->status)
                 ->etc();
         });
     }
