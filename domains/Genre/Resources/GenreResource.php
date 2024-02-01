@@ -19,6 +19,7 @@ class GenreResource extends JsonApiResource
     {
         return [
             'name' => $this->name,
+            'description' => $this->description,
         ];
     }
 

@@ -43,7 +43,7 @@ class BookControllerTest extends TestCase
     public function test_it_can_get_specific_book(): void
     {
         $book = Book::factory()->create();
-        $response = $this->getJson('/api/v1/books/25');
+        $response = $this->getJson('/api/v1/books/1');
         $response->assertOk();
 
         $response->assertJson(function (AssertableJson $json) use ($book) {
@@ -63,7 +63,7 @@ class BookControllerTest extends TestCase
     {
         $book = Book::factory()->hasAttached(Author::factory()->count(1))->create();
         $author = $book->authors()->first();
-        $response = $this->getJson('/api/v1/books/26?include=authors');
+        $response = $this->getJson('/api/v1/books/1?include=authors');
         $response->assertOk();
 
         $response->assertJson(function (AssertableJson $json) use ($book, $author) {
