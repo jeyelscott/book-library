@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\AuthorResource\Pages;
-use App\Filament\Resources\AuthorResource\RelationManagers\BooksRelationManager;
 use Carbon\Carbon;
 use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
@@ -60,7 +59,7 @@ class AuthorResource extends Resource
                 Forms\Components\Select::make('books')
                     ->multiple()
                     ->options(Book::all()->pluck('name', 'id'))
-                    ->formatStateUsing(fn (?Book $record) => $record ? $record->books->pluck('id')->toArray() : [])
+                    ->formatStateUsing(fn (?Author $record) => $record ? $record->books->pluck('id')->toArray() : [])
                     ->preload()
                     ->searchable()
                     ->columnSpanFull(),

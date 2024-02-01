@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domains\Genre\Models;
 
+use Domains\Genre\Traits\GenreRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Genre extends Model
 {
-    use HasFactory;
+    use GenreRelationship, HasFactory;
 
     /**
      * fillable
