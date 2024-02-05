@@ -20,6 +20,7 @@ class BookData
         public readonly string $status,
         public readonly array $authors,
         public readonly array $genres,
+        public readonly ?bool $is_featured,
     ) {
         //
     }
@@ -37,6 +38,7 @@ class BookData
             status: $data['status'],
             authors: $data['authors'],
             genres: $data['genres'],
+            is_featured: $data['is_featured'],
         );
     }
 }

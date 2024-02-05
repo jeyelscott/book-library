@@ -27,6 +27,7 @@ class BookFactory extends Factory
             'name' => fake()->unique()->sentence(),
             'description' => fake()->paragraph(),
             'status' => fake()->randomElement(['borrowed', 'available', 'not-available']),
+            'is_featured' => rand(0, 1),
         ];
     }
 

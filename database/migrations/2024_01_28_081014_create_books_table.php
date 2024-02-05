@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->longText('description');
             $table->string('status')->default('available');
+            $table->boolean('is_featured')->default(0);
             $table->timestamps();
         });
     }

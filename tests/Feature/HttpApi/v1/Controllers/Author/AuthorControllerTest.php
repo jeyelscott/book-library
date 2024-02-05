@@ -78,6 +78,7 @@ class AuthorControllerTest extends TestCase
                 ->where('included.0.attributes.name', $book->name)
                 ->where('included.0.attributes.description', $book->description)
                 ->where('included.0.attributes.status', $book->status)
+                ->where('included.0.attributes.is_featured', $book->is_featured)
                 ->etc();
         });
     }

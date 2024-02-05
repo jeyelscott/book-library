@@ -24,6 +24,8 @@ class AuthorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
 
+    protected static ?string $navigationGroup = 'Library Management';
+
     /**
      * form
      *
@@ -76,7 +78,7 @@ class AuthorResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                    ->description(fn (Author $record): string => '+63' . $record->contact_number . ' | ' . Str::limit($record->address, 100))
+                    ->description(fn (Author $record): string => '+63'.$record->contact_number.' | '.Str::limit($record->address, 100))
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('email')

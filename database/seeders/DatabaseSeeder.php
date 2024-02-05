@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        Author::factory(10)->create();
-        Genre::factory(10)->create();
-        Book::factory(10)->create();
+        Author::factory(50)->create();
+        Genre::factory(20)->create();
+        Book::factory(100)->create();
     }
 }

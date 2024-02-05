@@ -22,6 +22,7 @@ class BookResource extends JsonApiResource
             'name' => $this->name,
             'description' => $this->description,
             'status' => $this->status,
+            'is_featured' => $this->is_featured,
         ];
     }
 

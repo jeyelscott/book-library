@@ -24,6 +24,7 @@ class UpdateBookAction
             'name' => $bookData->name,
             'description' => $bookData->description,
             'status' => $bookData->status,
+            'is_featured' => $bookData->is_featured ? 1 : 0,
         ]);
 
         $book->authors()->sync($bookData->authors);

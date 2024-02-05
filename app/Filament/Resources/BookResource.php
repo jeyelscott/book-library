@@ -25,6 +25,8 @@ class BookResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
+    protected static ?string $navigationGroup = 'Library Management';
+
     /**
      * form
      *
@@ -62,6 +64,10 @@ class BookResource extends Resource
                         'borrowed' => 'Borrowed',
                     ])
                     ->columnSpanFull(),
+                Forms\Components\Toggle::make('is_featured')
+                    ->label('Set as Featured?')
+                    ->default(false)
+                    ->formatStateUsing(fn (?Book $record) => $record && $record->is_featured === 1 ? true : false),
             ]);
     }
 
