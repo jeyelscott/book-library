@@ -13,9 +13,9 @@ use Tests\TestCase;
 class GenreControllerTest extends TestCase
 {
     /**
-     * test_it_can_get_genres_list
+     * test_it_can_get_genres_list_api
      */
-    public function test_it_can_get_genres_list(): void
+    public function test_it_can_get_genres_list_api(): void
     {
         Genre::factory(10)->create();
 
@@ -37,9 +37,9 @@ class GenreControllerTest extends TestCase
     }
 
     /**
-     * test_it_can_get_specific_genre
+     * test_it_can_get_specific_genre_api
      */
-    public function test_it_can_get_specific_genre(): void
+    public function test_it_can_get_specific_genre_api(): void
     {
         $genre = Genre::factory()->create();
         $response = $this->getJson('/api/v1/genres/1');
@@ -55,9 +55,9 @@ class GenreControllerTest extends TestCase
     }
 
     /**
-     * test_it_can_get_specific_genre_with_books
+     * test_it_can_get_specific_genre_with_books_api
      */
-    public function test_it_can_get_specific_genre_with_books(): void
+    public function test_it_can_get_specific_genre_with_books_api(): void
     {
         $genre = Genre::factory()->hasAttached(Book::factory()->count(1))->create();
         $book = $genre->books()->first();

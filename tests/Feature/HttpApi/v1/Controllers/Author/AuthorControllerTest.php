@@ -13,9 +13,9 @@ use Tests\TestCase;
 class AuthorControllerTest extends TestCase
 {
     /**
-     * test_it_can_get_authors_list
+     * test_it_can_get_authors_list_api
      */
-    public function test_it_can_get_authors_list(): void
+    public function test_it_can_get_authors_list_api(): void
     {
         Author::factory(10)->create();
 
@@ -41,9 +41,9 @@ class AuthorControllerTest extends TestCase
     }
 
     /**
-     * test_it_can_get_specific_author
+     * test_it_can_get_specific_author_api
      */
-    public function test_it_can_get_specific_author(): void
+    public function test_it_can_get_specific_author_api(): void
     {
         $author = Author::factory()->create();
         $response = $this->getJson('/api/v1/authors/1');
@@ -63,9 +63,9 @@ class AuthorControllerTest extends TestCase
     }
 
     /**
-     * test_it_can_get_specific_author_with_books
+     * test_it_can_get_specific_author_with_books_api
      */
-    public function test_it_can_get_specific_author_with_books(): void
+    public function test_it_can_get_specific_author_with_books_api(): void
     {
         $author = Author::factory()->hasAttached(Book::factory()->count(1))->create();
         $book = $author->books()->first();
