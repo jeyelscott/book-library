@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domains\Genre\Models;
 
+use Database\Factories\GenreFactory;
 use Domains\Genre\Traits\GenreRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -24,4 +25,12 @@ class Genre extends Model
         'name',
         'description',
     ];
+
+    /**
+     * newFactory
+     */
+    protected static function newFactory(): GenreFactory
+    {
+        return new GenreFactory();
+    }
 }

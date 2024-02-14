@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Domains\Author\Models;
+namespace Database\Factories;
 
 use Domains\Author\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;

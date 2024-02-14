@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Domains\Genre\Models;
+namespace Database\Factories;
 
 use Domains\Genre\Models\Genre;
 use Illuminate\Database\Eloquent\Factories\Factory;

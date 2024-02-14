@@ -9,6 +9,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
+use Domains\Customer\Models\Customer;
 use Domains\Genre\Models\Genre;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
+        Customer::factory(20)->create();
         Author::factory(50)->create();
         Genre::factory(20)->create();
         Book::factory(100)->create();

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Database\Factories\Domains\Book\Models;
+namespace Database\Factories;
 
 use Domains\Author\Models\Author;
 use Domains\Book\Models\Book;
@@ -31,6 +31,9 @@ class BookFactory extends Factory
         ];
     }
 
+    /**
+     * configure
+     */
     public function configure(): static
     {
         return $this->afterCreating(function (Book $book) {
