@@ -21,7 +21,7 @@ class AuthorControllerTest extends TestCase
 
         $author = Author::first();
 
-        $response = $this->getJson('/api/v1/authors');
+        $response = $this->getJson('api/v1/authors');
 
         $response->assertOk();
 

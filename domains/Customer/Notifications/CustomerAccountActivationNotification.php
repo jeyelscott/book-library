@@ -37,7 +37,7 @@ class CustomerAccountActivationNotification extends Notification
     {
         $data = [
             'name' => $this->customer->name,
-            'verification_token' => $this->customer->verification_token
+            'verification_token' => $this->customer->verification_token,
         ];
 
         return (new MailMessage)->markdown('mail.customer.activation', $data);

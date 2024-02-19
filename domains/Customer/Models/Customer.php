@@ -16,7 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
  */
 class Customer extends Authenticatable
 {
-    use CustomerAttributes, HasFactory, Notifiable, HasApiTokens;
+    use CustomerAttributes, HasApiTokens, HasFactory, Notifiable;
 
     /**
      * fillable
@@ -37,6 +37,11 @@ class Customer extends Authenticatable
         'verification_token_expires_at',
     ];
 
+    /**
+     * hidden
+     *
+     * @var array
+     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -60,7 +65,7 @@ class Customer extends Authenticatable
      */
     protected $casts = [
         'status' => 'string',
-        'password' => 'hashed'
+        'password' => 'hashed',
     ];
 
     /**

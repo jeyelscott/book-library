@@ -1,6 +1,5 @@
 <?php
 
-use App\HttpApi\V1\Controllers\Customer\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['guest'])
+Route::middleware(['auth:sanctum'])
     ->group(function () {
         //
     });

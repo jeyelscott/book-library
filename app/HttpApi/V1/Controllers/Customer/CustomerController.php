@@ -8,18 +8,23 @@ use App\Http\Controllers\Controller;
 use Domains\Customer\Actions\VerifyAccountAction;
 use Domains\Customer\DataTransferObjects\VerifyEmailData;
 use Domains\Customer\Models\Customer;
-use Domains\Customer\Requests\LoginRequest;
 use Domains\Customer\Requests\VerifyAccountRequest;
 use Domains\Customer\Requests\VerifyEmailRequest;
-use Domains\Customer\Resources\CustomerResource;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * CustomerController
+ */
 class CustomerController extends Controller
 {
-
+    /**
+     * verifyEmail
+     *
+     * @param  mixed $request
+     * @return JsonResponse
+     */
     public function verifyEmail(VerifyEmailRequest $request): JsonResponse
     {
         $customer = Customer::where('email', $request->email)
@@ -28,7 +33,7 @@ class CustomerController extends Controller
 
         if (!$customer) {
             throw ValidationException::withMessages([
-                'email' => 'The provided credentials are incorrect.'
+                'email' => 'The provided credentials are incorrect.',
             ]);
         }
 
@@ -36,11 +41,17 @@ class CustomerController extends Controller
             'status' => 'success',
             'message' => '',
             'data' => [
-                'isMatched' => true
-            ]
+                'isMatched' => true,
+            ],
         ], 200);
     }
 
+    /**
+     * verifyAccount
+     *
+     * @param  mixed $request
+     * @return JsonResponse
+     */
     public function verifyAccount(VerifyAccountRequest $request): JsonResponse
     {
         $customer = Customer::where('email', $request->email)
@@ -49,7 +60,7 @@ class CustomerController extends Controller
 
         if (!$customer) {
             throw ValidationException::withMessages([
-                'email' => 'The provided credentials are incorrect.'
+                'email' => 'The provided credentials are incorrect.',
             ]);
         }
 

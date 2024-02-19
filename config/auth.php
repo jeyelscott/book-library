@@ -70,8 +70,8 @@ return [
         ],
         'customers' => [
             'driver' => 'eloquent',
-            'model' => Domains\Customer\Models\Customer::class
-        ]
+            'model' => Domains\Customer\Models\Customer::class,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
