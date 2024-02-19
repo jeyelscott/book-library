@@ -22,6 +22,8 @@ return new class extends Migration
             $table->date('date_of_birth');
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('status')->default(1);
+            $table->string('verification_token')->nullable();
+            $table->timestamp('verification_token_expires_at')->nullable();
             $table->timestamps();
         });
     }

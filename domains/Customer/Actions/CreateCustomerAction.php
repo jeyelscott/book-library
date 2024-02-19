@@ -24,6 +24,8 @@ class CreateCustomerAction
             'contact_number' => $customerData->contact_number,
             'email' => $customerData->email,
             'password' => Hash::make(Str::random(16)),
+            'verification_token' => Str::random(16),
+            'verification_token_expires_at' => date('Y-m-d H:i:s', strtotime('+2 days')),
         ]);
 
         return $customer;

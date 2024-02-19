@@ -33,11 +33,14 @@ class Customer extends Authenticatable
         'password',
         'email_verified_at',
         'status',
+        'verification_token',
+        'verification_token_expires_at',
     ];
 
     protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
+        'verification_token',
     ];
 
     /**
@@ -47,6 +50,7 @@ class Customer extends Authenticatable
      */
     protected $dates = [
         'email_verified_at',
+        'verification_token_expires_at',
     ];
 
     /**
@@ -55,7 +59,8 @@ class Customer extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'status',
+        'status' => 'string',
+        'password' => 'hashed'
     ];
 
     /**

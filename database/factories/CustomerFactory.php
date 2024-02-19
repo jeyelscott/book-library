@@ -27,9 +27,9 @@ class CustomerFactory extends Factory
             'address' => fake()->address(),
             'contact_number' => '09' . rand(100000000, 999999999),
             'email' => fake()->email(),
-            'password' => Hash::make('password'),
-            'email_verified_at' => rand(0, 1) ? now() : null,
-            'status' => rand(0, 1),
+            'password' => Hash::make('Password123!'),
+            'email_verified_at' => now(),
+            'status' => 1,
         ];
     }
 }

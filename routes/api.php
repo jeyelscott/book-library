@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\HttpApi\V1\Controllers\Customer\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-foreach (glob(__DIR__.'/api/*.php') as $routeFile) {
+Route::middleware(['guest'])
+    ->group(function () {
+        //
+    });
+foreach (glob(__DIR__ . '/api/*.php') as $routeFile) {
     include $routeFile;
 }

@@ -9,7 +9,7 @@ community.
 To get started, please activate your account by following the simple steps below:
 
 1. ### Click on the Verify Account Button
-<x-mail::button :url="url('/')">
+<x-mail::button :url="url('/customer/verify-account/'. $verification_token)">
     Verify Account
 </x-mail::button>
 

@@ -43,7 +43,9 @@ class CustomerResource extends Resource
                 Forms\Components\TextInput::make('contact_number')
                     ->required()
                     ->unique()
-                    ->placeholder('Contact number'),
+                    ->minLength(11)
+                    ->maxLength(11)
+                    ->placeholder('09XXXXXXXXX'),
                 Forms\Components\Textarea::make('address')
                     ->required()
                     ->placeholder('Complete address')
@@ -62,8 +64,7 @@ class CustomerResource extends Resource
                     ->searchable()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('contact_number')
-                    ->searchable()
-                    ->sortable(),
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
