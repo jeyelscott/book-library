@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domains\Book\Actions;
 
 use Domains\Book\DataTransferObjects\BookData;
-use Domains\Book\Models\Book;
+use Domains\Book\Projections\Book;
 
 /**
  * UpdateBookAction

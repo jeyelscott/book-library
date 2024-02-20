@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum'])
+Route::middleware('auth:sanctum')
     ->group(function () {
         //
     });
-foreach (glob(__DIR__ . '/api/*.php') as $routeFile) {
+foreach (glob(__DIR__.'/api/*.php') as $routeFile) {
     include $routeFile;
 }

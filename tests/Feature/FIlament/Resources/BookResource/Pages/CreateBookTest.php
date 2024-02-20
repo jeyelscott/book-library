@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Filament\Resources\BookResource;
 use App\Filament\Resources\BookResource\Pages\CreateBook;
-use Domains\Book\Models\Book;
+use Domains\Book\Projections\Book;
 use Livewire\Livewire;
 use Tests\TestCase;
 

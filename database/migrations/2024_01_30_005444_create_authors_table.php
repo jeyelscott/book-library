@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('authors', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid');
             $table->string('name');
             $table->longText('description')->nullable();
             $table->string('contact_number')->nullable();

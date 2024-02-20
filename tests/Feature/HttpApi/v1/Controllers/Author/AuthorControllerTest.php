@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Domains\Author\Models\Author;
-use Domains\Book\Models\Book;
+use Domains\Author\Projections\Author;
+use Domains\Book\Projections\Book;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 

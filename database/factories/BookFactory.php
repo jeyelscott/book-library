@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use Domains\Author\Models\Author;
-use Domains\Book\Models\Book;
-use Domains\Genre\Models\Genre;
+use Domains\Author\Projections\Author;
+use Domains\Book\Projections\Book;
+use Domains\Genre\Projections\Genre;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

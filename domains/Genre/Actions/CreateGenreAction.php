@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domains\Genre\Actions;
 
 use Domains\Genre\DataTransferObjects\GenreData;
-use Domains\Genre\Models\Genre;
+use Domains\Genre\Projections\Genre;
 
 /**
  * CreateGenreAction
@@ -19,7 +19,7 @@ class CreateGenreAction
      */
     public function execute(GenreData $genreData): Genre
     {
-        $genre = Genre::create([
+        $genre = Genre::createWithAttributes([
             'name' => $genreData->name,
             'description' => $genreData->description,
         ]);

@@ -2,26 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Domains\Book\Models;
+namespace Domains\Book\Projections;
 
 use Database\Factories\BookFactory;
 use Domains\Book\Traits\BookRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Spatie\EventSourcing\Projections\Projection;
 
 /**
  * Book
  */
-class Book extends Model
+class Book extends Projection
 {
     use BookRelationship, HasFactory;
 
-    /**
-     * fillable
-     *
-     * @var array
-     */
     protected $fillable = [
+        'uuid',
         'name',
         'description',
         'status',

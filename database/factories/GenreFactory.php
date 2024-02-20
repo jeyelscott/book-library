@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use Domains\Genre\Models\Genre;
+use Domains\Genre\Projections\Genre;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

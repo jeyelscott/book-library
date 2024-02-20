@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domains\Genre\Actions;
 
 use Domains\Genre\DataTransferObjects\GenreData;
-use Domains\Genre\Models\Genre;
+use Domains\Genre\Projections\Genre;
 
 /**
  * UpdateGenreAction
@@ -20,10 +20,6 @@ class UpdateGenreAction
      */
     public function execute(Genre $genre, GenreData $genreData): Genre
     {
-        $genre->update([
-            'name' => $genreData->name,
-            'description' => $genreData->description,
-        ]);
 
         return $genre;
     }

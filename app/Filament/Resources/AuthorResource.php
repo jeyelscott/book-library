@@ -6,8 +6,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\AuthorResource\Pages;
 use Carbon\Carbon;
-use Domains\Author\Models\Author;
-use Domains\Book\Models\Book;
+use Domains\Author\Projections\Author;
+use Domains\Book\Projections\Book;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -60,8 +60,8 @@ class AuthorResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\Select::make('books')
                     ->multiple()
-                    ->options(Book::all()->pluck('name', 'id'))
-                    ->formatStateUsing(fn (?Author $record) => $record ? $record->books->pluck('id')->toArray() : [])
+                    ->options(Book::all()->pluck('name', 'uuid'))
+                    ->formatStateUsing(fn (?Author $record) => $record ? $record->books->pluck('uuid')->toArray() : [])
                     ->preload()
                     ->searchable()
                     ->columnSpanFull(),

@@ -6,9 +6,9 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\BookResource\Pages;
 use Carbon\Carbon;
-use Domains\Author\Models\Author;
-use Domains\Book\Models\Book;
-use Domains\Genre\Models\Genre;
+use Domains\Author\Projections\Author;
+use Domains\Book\Projections\Book;
+use Domains\Genre\Projections\Genre;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -45,15 +45,15 @@ class BookResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\Select::make('authors')
                     ->multiple()
-                    ->options(Author::all()->pluck('name', 'id'))
-                    ->formatStateUsing(fn (?Book $record) => $record ? $record->authors->pluck('id')->toArray() : [])
+                    ->options(Author::all()->pluck('name', 'uuid'))
+                    ->formatStateUsing(fn (?Book $record) => $record ? $record->authors->pluck('uuid')->toArray() : [])
                     ->searchable()
                     ->preload()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('genres')
                     ->multiple()
-                    ->options(Genre::all()->pluck('name', 'id'))
-                    ->formatStateUsing(fn (?Book $record) => $record ? $record->genres->pluck('id')->toArray() : [])
+                    ->options(Genre::all()->pluck('name', 'uuid'))
+                    ->formatStateUsing(fn (?Book $record) => $record ? $record->genres->pluck('uuid')->toArray() : [])
                     ->searchable()
                     ->preload()
                     ->columnSpanFull(),

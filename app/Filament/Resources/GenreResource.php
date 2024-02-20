@@ -6,7 +6,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\GenreResource\Pages;
 use Carbon\Carbon;
-use Domains\Genre\Models\Genre;
+use Domains\Genre\Projections\Genre;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;

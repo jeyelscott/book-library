@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Domains\Genre\Traits;
 
-use Domains\Book\Models\Book;
+use Domains\Book\Projections\Book;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait GenreRelationship

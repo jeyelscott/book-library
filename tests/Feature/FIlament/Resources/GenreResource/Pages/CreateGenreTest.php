@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Filament\Resources\GenreResource;
 use App\Filament\Resources\GenreResource\Pages\CreateGenre;
-use Domains\Genre\Models\Genre;
+use Domains\Genre\Projections\Genre;
 use Livewire\Livewire;
 use Tests\TestCase;
 

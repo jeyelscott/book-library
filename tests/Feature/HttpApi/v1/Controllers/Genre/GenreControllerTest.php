@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Domains\Book\Models\Book;
-use Domains\Genre\Models\Genre;
+use Domains\Book\Projections\Book;
+use Domains\Genre\Projections\Genre;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 

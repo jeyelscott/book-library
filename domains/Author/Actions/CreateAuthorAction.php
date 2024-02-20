@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domains\Author\Actions;
 
 use Domains\Author\DataTransferObjects\AuthorData;
-use Domains\Author\Models\Author;
+use Domains\Author\Projections\Author;
 
 /**
  * CreateAuthorAction
@@ -17,9 +17,25 @@ class CreateAuthorAction
      *
      * @param  mixed  $authorData
      */
+    // public function execute(AuthorData $authorData): Author
+    // {
+    //     $author = Author::create([
+    //         'name' => $authorData->name,
+    //         'description' => $authorData->description,
+    //         'contact_number' => $authorData->contact_number,
+    //         'email' => $authorData->email,
+    //         'date_of_birth' => $authorData->date_of_birth,
+    //         'address' => $authorData->address,
+    //     ]);
+
+    //     $author->books()->attach($authorData->books);
+
+    //     return $author;
+    // }
+
     public function execute(AuthorData $authorData): Author
     {
-        $author = Author::create([
+        $author = Author::createWithAttributes([
             'name' => $authorData->name,
             'description' => $authorData->description,
             'contact_number' => $authorData->contact_number,
@@ -27,8 +43,6 @@ class CreateAuthorAction
             'date_of_birth' => $authorData->date_of_birth,
             'address' => $authorData->address,
         ]);
-
-        $author->books()->attach($authorData->books);
 
         return $author;
     }

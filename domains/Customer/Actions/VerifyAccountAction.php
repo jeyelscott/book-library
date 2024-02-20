@@ -16,9 +16,8 @@ class VerifyAccountAction
     /**
      * execute
      *
-     * @param  mixed $customer
-     * @param  mixed $verifyEmailData
-     * @return Customer
+     * @param  mixed  $customer
+     * @param  mixed  $verifyEmailData
      */
     public static function execute(Customer $customer, VerifyEmailData $verifyEmailData): Customer
     {

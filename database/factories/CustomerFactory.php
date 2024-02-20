@@ -25,7 +25,7 @@ class CustomerFactory extends Factory
             'gender' => fake()->randomElement(['male', 'female']),
             'date_of_birth' => fake()->date(),
             'address' => fake()->address(),
-            'contact_number' => '09' . rand(100000000, 999999999),
+            'contact_number' => '09'.rand(100000000, 999999999),
             'email' => fake()->email(),
             'password' => Hash::make('Password123!'),
             'email_verified_at' => now(),

@@ -22,8 +22,7 @@ class CustomerController extends Controller
     /**
      * verifyEmail
      *
-     * @param  mixed $request
-     * @return JsonResponse
+     * @param  mixed  $request
      */
     public function verifyEmail(VerifyEmailRequest $request): JsonResponse
     {
@@ -31,7 +30,7 @@ class CustomerController extends Controller
             ->where('verification_token', $request->verification_token)
             ->first();
 
-        if (!$customer) {
+        if (! $customer) {
             throw ValidationException::withMessages([
                 'email' => 'The provided credentials are incorrect.',
             ]);
@@ -49,8 +48,7 @@ class CustomerController extends Controller
     /**
      * verifyAccount
      *
-     * @param  mixed $request
-     * @return JsonResponse
+     * @param  mixed  $request
      */
     public function verifyAccount(VerifyAccountRequest $request): JsonResponse
     {
@@ -58,7 +56,7 @@ class CustomerController extends Controller
             ->where('verification_token', $request->verification_token)
             ->first();
 
-        if (!$customer) {
+        if (! $customer) {
             throw ValidationException::withMessages([
                 'email' => 'The provided credentials are incorrect.',
             ]);

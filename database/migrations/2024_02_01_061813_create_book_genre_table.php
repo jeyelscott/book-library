@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('book_genre', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('book_id');
-            $table->unsignedBigInteger('genre_id');
-            $table->foreign('book_id')
-                ->references('id')
-                ->on('books')
-                ->cascadeOnDelete();
-            $table->foreign('genre_id')
-                ->references('id')
-                ->on('genres')
-                ->cascadeOnDelete();
+            $table->string('book_uuid');
+            $table->string('genre_uuid');
+            // $table->foreignUuid('book_uuid')
+            //     ->references('id')
+            //     ->on('books')
+            //     ->cascadeOnDelete();
+            // $table->foreignUuid('genre_uuid')
+            //     ->references('id')
+            //     ->on('genres')
+            //     ->cascadeOnDelete();
             $table->timestamps();
         });
     }

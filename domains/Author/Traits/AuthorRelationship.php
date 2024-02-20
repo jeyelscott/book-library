@@ -2,7 +2,7 @@
 
 namespace Domains\Author\Traits;
 
-use Domains\Book\Models\Book;
+use Domains\Book\Projections\Book;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait AuthorRelationship

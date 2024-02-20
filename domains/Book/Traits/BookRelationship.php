@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Domains\Book\Traits;
 
-use Domains\Author\Models\Author;
-use Domains\Genre\Models\Genre;
+use Domains\Author\Projections\Author;
+use Domains\Genre\Projections\Genre;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 trait BookRelationship

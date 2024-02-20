@@ -9,12 +9,8 @@ namespace Domains\Book\DataTransferObjects;
  */
 class BookData
 {
-    /**
-     * __construct
-     *
-     * @return void
-     */
     public function __construct(
+        public readonly string $uuid,
         public readonly string $name,
         public readonly string $description,
         public readonly string $status,
@@ -33,6 +29,7 @@ class BookData
     public static function fromArray(array $data): self
     {
         return new self(
+            uuid: $data['uuid'],
             name: $data['name'],
             description: $data['description'],
             status: $data['status'],

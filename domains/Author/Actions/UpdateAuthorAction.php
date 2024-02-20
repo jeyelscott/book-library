@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Domains\Author\Actions;
 
 use Domains\Author\DataTransferObjects\AuthorData;
-use Domains\Author\Models\Author;
+use Domains\Author\Projections\Author;
 
 /**
  * UpdateAuthorAction

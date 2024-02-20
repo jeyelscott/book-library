@@ -18,14 +18,14 @@ class CustomerAuthController extends Controller
     /**
      * login
      *
-     * @param  mixed $request
+     * @param  mixed  $request
      * @return void
      */
     public function login(LoginRequest $request)
     {
         $customer = Customer::where('email', $request->email)->first();
 
-        if (!Auth::attempt()) {
+        if (! Auth::attempt()) {
 
             return response()->json([
                 'message' => 'You have been successfully logged in.',

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\HttpApi\V1\Controllers\Book;
 
 use App\Http\Controllers\Controller;
-use Domains\Book\Models\Book;
+use Domains\Book\Projections\Book;
 use Domains\Book\Resources\BookResource;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\JsonApiResourceCollection;

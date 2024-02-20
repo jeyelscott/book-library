@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Filament\Resources\AuthorResource;
 use App\Filament\Resources\AuthorResource\Pages\CreateAuthor;
-use Domains\Author\Models\Author;
+use Domains\Author\Projections\Author;
 use Livewire\Livewire;
 use Tests\TestCase;
 

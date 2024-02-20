@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\HttpApi\V1\Controllers\Author;
 
 use App\Http\Controllers\Controller;
-use Domains\Author\Models\Author;
+use Domains\Author\Projections\Author;
 use Domains\Author\Resources\AuthorResource;
 use TiMacDonald\JsonApi\JsonApiResource;
 use TiMacDonald\JsonApi\JsonApiResourceCollection;

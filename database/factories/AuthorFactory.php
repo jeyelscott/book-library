@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use Domains\Author\Models\Author;
+use Domains\Author\Projections\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Author>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Projections\Author>
  */
 class AuthorFactory extends Factory
 {
