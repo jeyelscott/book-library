@@ -14,12 +14,12 @@ use Domains\Genre\Projections\Genre;
 class CreateGenreAction
 {
     private GenreAggregateRoot $genreAggregateRoot;
+
     private Genre $model;
 
     /**
      * __construct
      *
-     * @param  GenreAggregateRoot $genreAggregateRoot
      * @return void
      */
     public function __construct(GenreAggregateRoot $genreAggregateRoot, Genre $model)
@@ -30,9 +30,6 @@ class CreateGenreAction
 
     /**
      * execute
-     *
-     * @param  GenreData $genreData
-     * @return Genre
      */
     public function execute(GenreData $genreData): Genre
     {

@@ -31,12 +31,11 @@ class EditGenre extends EditRecord
 
     /**
      * handleRecordUpdate
-     *
-     * @param  mixed  $record
-     * @param  mixed  $data
      */
     public function handleRecordUpdate(Model $record, array $data): Model
     {
+        $data['uuid'] = (string) $record->uuid;
+
         return DB::transaction(fn () => app(UpdateGenreAction::class)->execute($record, GenreData::fromArray($data)));
     }
 }

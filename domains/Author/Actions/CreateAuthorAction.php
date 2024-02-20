@@ -15,9 +15,6 @@ class CreateAuthorAction
 {
     /**
      * execute
-     *
-     * @param  AuthorData $authorData
-     * @return Author
      */
     public function execute(AuthorData $authorData): Author
     {

@@ -21,12 +21,11 @@ class CreateGenre extends CreateRecord
 
     /**
      * handleRecordCreation
-     *
-     * @param  mixed  $data
      */
     public function handleRecordCreation(array $data): Model
     {
         $data['uuid'] = (string) Uuid::uuid4();
+
         return DB::transaction(fn () => app(CreateGenreAction::class)->execute(GenreData::fromArray($data)));
     }
 }

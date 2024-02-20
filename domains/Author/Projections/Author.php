@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Domains\Author\Projections;
 
 use Database\Factories\AuthorFactory;
-use Domains\Author\Events\AuthorCreated;
 use Domains\Author\Traits\AuthorRelationship;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Ramsey\Uuid\Uuid;
 use Spatie\EventSourcing\Projections\Projection;
 
 /**
@@ -31,7 +29,7 @@ class Author extends Projection
         'email',
         'date_of_birth',
         'address',
-        'books'
+        'books',
     ];
 
     /**
