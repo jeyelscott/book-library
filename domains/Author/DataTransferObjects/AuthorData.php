@@ -15,6 +15,7 @@ class AuthorData
      * @return void
      */
     public function __construct(
+        public readonly string $uuid,
         public readonly string $name,
         public readonly string $email,
         public readonly string $date_of_birth,
@@ -34,6 +35,7 @@ class AuthorData
     public static function fromArray(array $data): self
     {
         return new self(
+            uuid: $data['uuid'],
             name: $data['name'],
             description: $data['description'],
             contact_number: $data['contact_number'],

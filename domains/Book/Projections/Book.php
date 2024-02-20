@@ -16,6 +16,11 @@ class Book extends Projection
 {
     use BookRelationship, HasFactory;
 
+    /**
+     * fillable
+     *
+     * @var array
+     */
     protected $fillable = [
         'uuid',
         'name',

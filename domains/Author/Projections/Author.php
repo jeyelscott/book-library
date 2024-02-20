@@ -19,11 +19,20 @@ class Author extends Projection
     use AuthorRelationship, HasFactory;
 
     /**
-     * guarded
+     * fillable
      *
      * @var array
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'uuid',
+        'name',
+        'description',
+        'contact_number',
+        'email',
+        'date_of_birth',
+        'address',
+        'books'
+    ];
 
     /**
      * dates
@@ -33,28 +42,6 @@ class Author extends Projection
     protected $dates = [
         'date_of_birth',
     ];
-
-    /**
-     * createWithAttributes
-     */
-    public static function createWithAttributes(array $attributes): Author
-    {
-        $attributes['uuid'] = (string) Uuid::uuid4();
-
-        event(new AuthorCreated($attributes));
-
-        return static::uuid($attributes['uuid']);
-    }
-
-    /**
-     * uuid
-     *
-     * @param  mixed  $uuid
-     */
-    public static function uuid(string $uuid): ?Author
-    {
-        return static::where('uuid', $uuid)->first();
-    }
 
     /**
      * newFactory

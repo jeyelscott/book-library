@@ -10,6 +10,7 @@ use Domains\Author\DataTransferObjects\AuthorData;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Uuid;
 
 /**
  * CreateAuthor
@@ -25,6 +26,8 @@ class CreateAuthor extends CreateRecord
      */
     public function handleRecordCreation(array $data): Model
     {
+        $data['uuid'] = (string) Uuid::uuid4();
+
         return DB::transaction(fn () => app(CreateAuthorAction::class)->execute(AuthorData::fromArray($data)));
     }
 }

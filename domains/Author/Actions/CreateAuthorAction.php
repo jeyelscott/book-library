@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domains\Author\Actions;
 
+use Domains\Author\AuthorAggregateRoot;
 use Domains\Author\DataTransferObjects\AuthorData;
 use Domains\Author\Projections\Author;
 
@@ -15,34 +16,17 @@ class CreateAuthorAction
     /**
      * execute
      *
-     * @param  mixed  $authorData
+     * @param  AuthorData $authorData
+     * @return Author
      */
-    // public function execute(AuthorData $authorData): Author
-    // {
-    //     $author = Author::create([
-    //         'name' => $authorData->name,
-    //         'description' => $authorData->description,
-    //         'contact_number' => $authorData->contact_number,
-    //         'email' => $authorData->email,
-    //         'date_of_birth' => $authorData->date_of_birth,
-    //         'address' => $authorData->address,
-    //     ]);
-
-    //     $author->books()->attach($authorData->books);
-
-    //     return $author;
-    // }
-
     public function execute(AuthorData $authorData): Author
     {
-        $author = Author::createWithAttributes([
-            'name' => $authorData->name,
-            'description' => $authorData->description,
-            'contact_number' => $authorData->contact_number,
-            'email' => $authorData->email,
-            'date_of_birth' => $authorData->date_of_birth,
-            'address' => $authorData->address,
-        ]);
+        AuthorAggregateRoot::retrieve($authorData->uuid)
+            ->createAuthor($authorData)
+            ->addBooksToAuthor($authorData->uuid, $authorData->books)
+            ->persist();
+
+        $author = Author::where('uuid', $authorData->uuid)->first();
 
         return $author;
     }
