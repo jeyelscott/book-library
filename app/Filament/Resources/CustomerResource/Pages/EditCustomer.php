@@ -32,6 +32,8 @@ class EditCustomer extends EditRecord
      */
     public function handleRecordUpdate(Model $record, array $data): Model
     {
+        $data['uuid'] = $record->uuid;
+
         return DB::transaction(fn () => app(UpdateCustomerAction::class)->execute($record, CustomerData::fromArray($data)));
     }
 }

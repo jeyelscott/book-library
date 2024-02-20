@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domains\Customer\Actions;
 
+use Domains\Customer\CustomerAggregateRoot;
 use Domains\Customer\DataTransferObjects\CustomerData;
 use Domains\Customer\Models\Customer;
 
@@ -21,14 +22,9 @@ class UpdateCustomerAction
      */
     public function execute(Customer $customer, CustomerData $customerData)
     {
-        $customer->update([
-            'name' => $customerData->name,
-            'gender' => $customerData->gender,
-            'date_of_birth' => $customerData->date_of_birth,
-            'address' => $customerData->address,
-            'contact_number' => $customerData->contact_number,
-            'email' => $customerData->email,
-        ]);
+        CustomerAggregateRoot::retrieve($customer->uuid)
+            ->updateCustomer($customerData)
+            ->persist();
 
         return $customer;
     }
