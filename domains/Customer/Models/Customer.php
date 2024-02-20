@@ -7,16 +7,15 @@ namespace Domains\Customer\Models;
 use Database\Factories\CustomerFactory;
 use Domains\Customer\Traits\CustomerAttributes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Spatie\EventSourcing\Projections\Projection;
 
 /**
  * Customer
  */
-class Customer extends Authenticatable
+class Customer extends Projection
 {
-    use CustomerAttributes, HasApiTokens, HasFactory, Notifiable;
+    use CustomerAttributes, HasFactory, Notifiable;
 
     /**
      * fillable
@@ -24,6 +23,7 @@ class Customer extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'uuid',
         'name',
         'gender',
         'date_of_birth',

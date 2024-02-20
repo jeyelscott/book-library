@@ -15,6 +15,7 @@ class CustomerData
      * @return void
      */
     public function __construct(
+        public readonly string $uuid,
         public readonly string $name,
         public readonly string $gender,
         public readonly string $date_of_birth,
@@ -32,6 +33,7 @@ class CustomerData
     public static function fromArray(array $data): self
     {
         return new self(
+            uuid: $data['uuid'],
             name: $data['name'],
             gender: $data['gender'],
             date_of_birth: $data['date_of_birth'],

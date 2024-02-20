@@ -26,6 +26,7 @@ return [
         Domains\Author\Projectors\AuthorProjector::class,
         Domains\Book\Projectors\BookProjector::class,
         Domains\Genre\Projectors\GenreProjector::class,
+        Domains\Customer\Projectors\CustomerProjector::class,
     ],
 
     /*
