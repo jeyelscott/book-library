@@ -19,6 +19,11 @@ class CustomerResource extends Resource
 
     protected static ?string $navigationGroup = 'User Management';
 
+    /**
+     * form
+     *
+     * @param  mixed  $form
+     */
     public static function form(Form $form): Form
     {
         return $form
@@ -53,6 +58,11 @@ class CustomerResource extends Resource
             ]);
     }
 
+    /**
+     * table
+     *
+     * @param  mixed  $table
+     */
     public static function table(Table $table): Table
     {
         return $table
@@ -91,6 +101,9 @@ class CustomerResource extends Resource
             ]);
     }
 
+    /**
+     * getRelations
+     */
     public static function getRelations(): array
     {
         return [
@@ -98,6 +111,9 @@ class CustomerResource extends Resource
         ];
     }
 
+    /**
+     * getPages
+     */
     public static function getPages(): array
     {
         return [

@@ -15,6 +15,11 @@ class CreateCustomer extends CreateRecord
 {
     protected static string $resource = CustomerResource::class;
 
+    /**
+     * handleRecordCreation
+     *
+     * @param  mixed  $data
+     */
     public function handleRecordCreation(array $data): Model
     {
         $data['uuid'] = (string) Uuid::uuid4();

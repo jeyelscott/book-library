@@ -37,6 +37,8 @@ class EditBook extends EditRecord
      */
     protected function handleRecordUpdate(Model $record, array $data): Model
     {
+        $data['uuid'] = (string) $record->uuid;
+
         return DB::transaction(fn () => app(UpdateBookAction::class)->execute($record, BookData::fromArray($data)));
     }
 }

@@ -15,9 +15,6 @@ class AuthorProjector extends Projector
 {
     /**
      * onAuthorCreated
-     *
-     * @param  AuthorCreated $event
-     * @return void
      */
     public function onAuthorCreated(AuthorCreated $event): void
     {
@@ -37,9 +34,6 @@ class AuthorProjector extends Projector
 
     /**
      * onAuthorUpdated
-     *
-     * @param  AuthorUpdated $event
-     * @return void
      */
     public function onAuthorUpdated(AuthorUpdated $event): void
     {
@@ -58,9 +52,6 @@ class AuthorProjector extends Projector
 
     /**
      * onAddBooksToAuthor
-     *
-     * @param  AddBooksToAuthor $event
-     * @return void
      */
     public function onAddBooksToAuthor(AddBooksToAuthor $event): void
     {
@@ -71,9 +62,6 @@ class AuthorProjector extends Projector
 
     /**
      * onUpdateBooksToAuthor
-     *
-     * @param  UpdateBooksToAuthor $event
-     * @return void
      */
     public function onUpdateBooksToAuthor(UpdateBooksToAuthor $event): void
     {

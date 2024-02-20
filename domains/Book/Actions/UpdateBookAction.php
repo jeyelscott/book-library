@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Domains\Book\Actions;
 
+use Domains\Book\BookAggregateRoot;
 use Domains\Book\DataTransferObjects\BookData;
 use Domains\Book\Projections\Book;
 
@@ -20,15 +21,11 @@ class UpdateBookAction
      */
     public function execute(Book $book, BookData $bookData): Book
     {
-        $book->update([
-            'name' => $bookData->name,
-            'description' => $bookData->description,
-            'status' => $bookData->status,
-            'is_featured' => $bookData->is_featured ? 1 : 0,
-        ]);
-
-        $book->authors()->sync($bookData->authors);
-        $book->genres()->sync($bookData->genres);
+        BookAggregateRoot::retrieve($book->uuid)
+            ->updateBook($bookData)
+            ->updateAuthorsToBook($book->uuid, $bookData->authors)
+            ->updateGenresToBook($book->uuid, $bookData->genres)
+            ->persist();
 
         return $book;
     }

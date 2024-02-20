@@ -31,6 +31,9 @@ class EditGenre extends EditRecord
 
     /**
      * handleRecordUpdate
+     *
+     * @param  mixed  $record
+     * @param  mixed  $data
      */
     public function handleRecordUpdate(Model $record, array $data): Model
     {

@@ -21,6 +21,8 @@ class CreateGenre extends CreateRecord
 
     /**
      * handleRecordCreation
+     *
+     * @param  mixed  $data
      */
     public function handleRecordCreation(array $data): Model
     {

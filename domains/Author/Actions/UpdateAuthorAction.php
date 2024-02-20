@@ -21,7 +21,7 @@ class UpdateAuthorAction
      */
     public function execute(Author $author, AuthorData $authorData): Author
     {
-        AuthorAggregateRoot::retrieve($authorData->uuid)
+        AuthorAggregateRoot::retrieve($author->uuid)
             ->updateAuthor($authorData)
             ->updateBooksToAuthor($authorData->uuid, $authorData->books)
             ->persist();
