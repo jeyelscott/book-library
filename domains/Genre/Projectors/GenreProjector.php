@@ -34,11 +34,11 @@ class GenreProjector extends Projector
     public function onGenreUpdated(GenreUpdated $event): void
     {
         $genre = Genre::where('uuid', $event->uuid)->first();
+
         $genre->writeable()
             ->update([
                 'name' => $event->name,
                 'description' => $event->description,
-            ])
-            ->save();
+            ]);
     }
 }

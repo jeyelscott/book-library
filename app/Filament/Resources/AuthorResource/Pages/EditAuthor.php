@@ -37,6 +37,8 @@ class EditAuthor extends EditRecord
      */
     public function handleRecordUpdate(Model $record, array $data): Model
     {
+        $data['uuid'] = (string) $record->uuid;
+
         return DB::transaction(fn () => app(UpdateAuthorAction::class)->execute($record, AuthorData::fromArray($data)));
     }
 }
