@@ -18,6 +18,13 @@ class GenreProjector extends Projector
      */
     public function onGenreCreated(GenreCreated $event)
     {
-        (new Genre($event->genreAttributes))->writeable()->save();
+        Genre::new()
+            ->writeable()
+            ->create([
+                'uuid' => $event->uuid,
+                'name' => $event->name,
+                'description' => $event->description,
+            ])
+            ->save();
     }
 }

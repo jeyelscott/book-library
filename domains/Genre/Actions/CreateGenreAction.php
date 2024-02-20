@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Domains\Genre\Actions;
 
 use Domains\Genre\DataTransferObjects\GenreData;
+use Domains\Genre\GenreAggregateRoot;
 use Domains\Genre\Projections\Genre;
 
 /**
@@ -12,18 +13,33 @@ use Domains\Genre\Projections\Genre;
  */
 class CreateGenreAction
 {
+    private GenreAggregateRoot $genreAggregateRoot;
+    private Genre $model;
+
+    /**
+     * __construct
+     *
+     * @param  GenreAggregateRoot $genreAggregateRoot
+     * @return void
+     */
+    public function __construct(GenreAggregateRoot $genreAggregateRoot, Genre $model)
+    {
+        $this->genreAggregateRoot = $genreAggregateRoot;
+        $this->model = $model;
+    }
+
     /**
      * execute
      *
-     * @param  mixed  $genreData
+     * @param  GenreData $genreData
+     * @return Genre
      */
     public function execute(GenreData $genreData): Genre
     {
-        $genre = Genre::createWithAttributes([
-            'name' => $genreData->name,
-            'description' => $genreData->description,
-        ]);
+        $this->genreAggregateRoot->retrieve($genreData->uuid)
+            ->createGenre($genreData)
+            ->persist();
 
-        return $genre;
+        return $this->model->where('uuid', $genreData->uuid)->first();
     }
 }

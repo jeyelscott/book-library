@@ -9,19 +9,14 @@ use Spatie\EventSourcing\StoredEvents\ShouldBeStored;
 class GenreCreated extends ShouldBeStored
 {
     /**
-     * genreAttributes
-     *
-     * @var array
-     */
-    public $genreAttributes;
-
-    /**
      * __construct
      *
      * @return void
      */
-    public function __construct(array $genreAttributes)
-    {
-        $this->genreAttributes = $genreAttributes;
+    public function __construct(
+        public readonly string $uuid,
+        public readonly string $name,
+        public readonly ?string $description,
+    ) {
     }
 }

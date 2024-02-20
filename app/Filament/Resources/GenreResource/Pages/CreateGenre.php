@@ -10,6 +10,7 @@ use Domains\Genre\DataTransferObjects\GenreData;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Ramsey\Uuid\Uuid;
 
 /**
  * CreateGenre
@@ -25,6 +26,7 @@ class CreateGenre extends CreateRecord
      */
     public function handleRecordCreation(array $data): Model
     {
+        $data['uuid'] = (string) Uuid::uuid4();
         return DB::transaction(fn () => app(CreateGenreAction::class)->execute(GenreData::fromArray($data)));
     }
 }

@@ -44,6 +44,7 @@ class BookResource extends Resource
                     ->rows(5)
                     ->columnSpanFull(),
                 Forms\Components\Select::make('authors')
+                    ->required()
                     ->multiple()
                     ->options(Author::all()->pluck('name', 'uuid'))
                     ->formatStateUsing(fn (?Book $record) => $record ? $record->authors->pluck('uuid')->toArray() : [])
@@ -51,6 +52,7 @@ class BookResource extends Resource
                     ->preload()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('genres')
+                    ->required()
                     ->multiple()
                     ->options(Genre::all()->pluck('name', 'uuid'))
                     ->formatStateUsing(fn (?Book $record) => $record ? $record->genres->pluck('uuid')->toArray() : [])
@@ -58,6 +60,7 @@ class BookResource extends Resource
                     ->preload()
                     ->columnSpanFull(),
                 Forms\Components\Select::make('status')
+                    ->required()
                     ->options([
                         'available' => 'Available',
                         'not-available' => 'Not Available',
